@@ -1,0 +1,36 @@
+{
+  "name": "sx-frontend-trainee-assignment",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "NODE_ENV=development webpack serve --mode development",
+    "start": "NODE_ENV=production node server.js",
+    "build": "NODE_ENV=production webpack --mode production"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/preset-react": "7.16.7",
+    "babel-loader": "8.2.3",
+    "clsx": "1.1.1",
+    "css-loader": "6.5.1",
+    "custom-env": "2.0.1",
+    "dompurify": "2.3.4",
+    "dotenv-webpack": "^7.0.3",
+    "html-webpack-plugin": "5.5.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-redux": "7.2.6",
+    "react-router-dom": "5.3.0",
+    "redux": "4.1.2",
+    "redux-thunk": "2.4.1",
+    "style-loader": "3.3.1",
+    "webpack": "5.66.0",
+    "webpack-cli": "4.9.1",
+    "webpack-dev-server": "4.7.3"
+  },
+  "dependencies": {
+    "express": "4.17.2"
+  }
+}

@@ -1,0 +1,60 @@
+.root {
+  font-size: 1rem;
+}
+.root p {
+  margin-block-end: unset;
+}
+.rootCommentContainer {
+  position: relative;
+}
+.comment {
+  padding: 0 28px 24px 32px;
+}
+.header {
+  padding: 4px 0;
+}
+.nickname {
+  font-weight: 900;
+  color: #141414;
+}
+.time {
+  font-size: 0.75rem;
+  color: #777;
+}
+.message {
+  margin-top: 8px;
+}
+.button {
+  cursor: pointer;
+  background-color: unset;
+  border: none;
+  text-align: left;
+  font-size: 1rem;
+  padding: unset;
+}
+.button:hover {
+  background-color: #deeaf0;
+  transition: background-color ease-in-out 250ms;
+}
+.child {
+  padding-left: 24px;
+}
+.kidsDot {
+  position: absolute;
+  left: 4px;
+  margin: 4px 8px 4px 0;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 100%;
+  border: 2px solid #8cafc0;
+  color: #355868;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 13px;
+}
+.kidDotOpen {
+  background-color: #8cafc0;
+  color: #fff;
+}
