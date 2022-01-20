@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { StoryPreview } from "./StoryPreview";
+import { Story } from "./story";
 import { connect } from "react-redux";
 import {
   addItems as addItemsAction,
@@ -9,9 +9,10 @@ import {
 const StoriesComponent = ({ itemsIds, itemsMap, addItems, getItemsIds }) => {
   useEffect(() => {
     getItemsIds();
-    const intervalId = setInterval(() => {
-      setLastUpdate(new Date());
-    }, process.env.API_REFRESH_TIMEOUT_MILLISECONDS);
+    const intervalId = setInterval(
+      () => getItemsIds(),
+      process.env.API_REFRESH_TIMEOUT_MILLISECONDS
+    );
 
     return () => clearInterval(intervalId);
   }, []);
@@ -24,7 +25,7 @@ const StoriesComponent = ({ itemsIds, itemsMap, addItems, getItemsIds }) => {
     <div>
       <button onClick={getItemsIds}>Refresh</button>
       {itemsIds.map((id) => (
-        <StoryPreview key={id} story={itemsMap.get(id)} />
+        <Story key={id} story={itemsMap.get(id)} />
       ))}
     </div>
   );

@@ -1,0 +1,42 @@
+.root {
+  display: block;
+  padding: 24px 16px;
+  margin: -24px -16px;
+  transition: background-color ease-in-out 150ms;
+}
+.root:hover {
+  background-color: #ebebeb;
+  text-decoration: unset;
+}
+.root:hover a {
+  color: #2d5d75;
+}
+.rootSkeleton:hover {
+  background-color: unset;
+}
+.title {
+  font-size: 1.75rem;
+}
+.titleSkeleton {
+  height: 32px;
+  border-radius: 8px;
+  width: 100%;
+  background-color: #ebebeb;
+}
+.details {
+  margin-top: 8px;
+  color: #868686;
+}
+.detailsSkeleton {
+  height: 18px;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 370px;
+  background-color: #ebebeb;
+}
+.time {
+  color: #777;
+}
+.nickname {
+  font-weight: 900;
+}

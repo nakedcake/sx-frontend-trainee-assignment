@@ -15,7 +15,7 @@
 }
 .nickname {
   font-weight: 900;
-  color: #141414;
+  color: #868686;
 }
 .time {
   font-size: 0.75rem;
@@ -25,6 +25,8 @@
   margin-top: 8px;
 }
 .button {
+  display: block;
+  width: 100%;
   cursor: pointer;
   background-color: unset;
   border: none;
@@ -43,16 +45,17 @@
   position: absolute;
   left: 4px;
   margin: 4px 8px 4px 0;
-  flex-shrink: 0;
-  width: 16px;
-  height: 16px;
-  border-radius: 100%;
-  border: 2px solid #8cafc0;
-  color: #355868;
   display: flex;
+  flex-shrink: 0;
   justify-content: center;
   align-items: center;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #8cafc0;
+  border-radius: 100%;
+  color: #355868;
   font-size: 13px;
+  line-height: 1;
 }
 .kidDotOpen {
   background-color: #8cafc0;

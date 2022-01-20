@@ -13,7 +13,7 @@ module.exports = {
   },
   devtool: "inline-source-map",
   devServer: {
-    port: process.env.PORT,
+    port: process.env.APP_PORT,
     historyApiFallback: true,
   },
   module: {
@@ -49,6 +49,9 @@ module.exports = {
   },
   plugins: [
     new webpack.EnvironmentPlugin([
+      "API_HOST",
+      "API_PORT",
+      "APP_PORT",
       "STORIES_LIST_LIMIT",
       "API_REFRESH_TIMEOUT_MILLISECONDS",
     ]),

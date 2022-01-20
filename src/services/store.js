@@ -2,8 +2,6 @@ import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { getItem, getItemsIds as getItemsIdsFromApi } from "./api";
 
-const ITEMS_LIMIT = process.env.STORIES_LIST_LIMIT;
-
 const ADD_ITEMS_IDS = "ADD_ITEMS_IDS";
 const ADD_ITEMS = "ADD_ITEMS";
 
@@ -12,10 +10,7 @@ function appReducer(state = { itemsIds: [], itemsMap: new Map() }, action) {
     case ADD_ITEMS_IDS:
       return {
         ...state,
-        itemsIds: [...new Set([...action.ids, ...state.itemsIds])].slice(
-          0,
-          ITEMS_LIMIT
-        ),
+        itemsIds: [...new Set([...action.ids, ...state.itemsIds])],
       };
     case ADD_ITEMS:
       return {
@@ -56,7 +51,7 @@ export const addItems = (items, options = { forceUpdate: false }) => {
         return null;
       }
 
-      const BATCH_SIZE = 5;
+      const BATCH_SIZE = 8;
 
       const remainItems = items.length - batchStartIndex;
 
@@ -79,9 +74,8 @@ export const addItems = (items, options = { forceUpdate: false }) => {
 
       Promise.all(requests).then((items) => {
         dispatch(addItemsAction(items.filter((item) => item)));
+        getItemsBatch(batchStartIndex + BATCH_SIZE);
       });
-
-      getItemsBatch(batchStartIndex + BATCH_SIZE);
     };
 
     getItemsBatch(0);

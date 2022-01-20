@@ -3,14 +3,14 @@ import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
 import { IndexPage } from "./componenents/pages/IndexPage";
 import { StoryPage } from "./componenents/pages/StoryPage";
-import { Layout } from "./componenents/Layout";
 import { routes } from "./routes";
 import { store } from "./services/store";
+import { Layout } from "./componenents/layout";
 
 const pages = [
-  { path: routes.index.getRoute(), component: IndexPage, exact: true },
+  { path: routes.app.index.getRoute(), component: IndexPage, exact: true },
   {
-    path: routes.story.getRoute(":itemId"),
+    path: routes.app.story.getRoute(":itemId"),
     component: StoryPage,
     exact: false,
   },

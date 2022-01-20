@@ -1,10 +1,20 @@
 module.exports = {
   routes: {
-    index: {
-      getRoute: () => "/",
+    api: {
+      stories: {
+        getRoute: () => `/api/stories`,
+      },
+      item: {
+        getRoute: (itemId) => `/api/items/${itemId}`,
+      },
     },
-    story: {
-      getRoute: (itemId) => `/stories/${itemId}`,
+    app: {
+      index: {
+        getRoute: () => "/",
+      },
+      story: {
+        getRoute: (itemId) => `/stories/${itemId}`,
+      },
     },
   },
 };

@@ -1,7 +1,10 @@
-const fetcher = (url) => fetch(url).then((res) => res.json());
+import { routes } from "../routes";
 
-export const getItemsIds = () =>
-  fetcher("https://hacker-news.firebaseio.com/v0/newstories.json");
+const API_ENDPOINT = `${process.env.API_HOST}:${process.env.API_PORT}`;
 
-export const getItem = (id) =>
-  fetcher(`https://hacker-news.firebaseio.com/v0/item/${id}.json`);
+const fetcher = (url) =>
+  fetch(`${API_ENDPOINT}${url}`).then((res) => res.json());
+
+export const getItemsIds = () => fetcher(routes.api.stories.getRoute());
+
+export const getItem = (id) => fetcher(routes.api.item.getRoute(id));
