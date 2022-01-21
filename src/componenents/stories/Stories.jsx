@@ -1,10 +1,13 @@
 import React, { useEffect } from "react";
-import { Story } from "./story";
+import { Story } from "../story";
 import { connect } from "react-redux";
 import {
   addItems as addItemsAction,
   getItemsIds as getItemsIdsAction,
-} from "../services/store";
+} from "../../services/store";
+import s from "./Stories.module.css";
+import { ButtonBase } from "../common/ButtonBase";
+import { Refresh } from "../icons/Refresh";
 
 const StoriesComponent = ({ itemsIds, itemsMap, addItems, getItemsIds }) => {
   useEffect(() => {
@@ -23,10 +26,16 @@ const StoriesComponent = ({ itemsIds, itemsMap, addItems, getItemsIds }) => {
 
   return (
     <div>
-      <button onClick={getItemsIds}>Refresh</button>
-      {itemsIds.map((id) => (
-        <Story key={id} story={itemsMap.get(id)} />
-      ))}
+      <div className={s.refreshBlock}>
+        <ButtonBase onClick={getItemsIds} className={s.refreshButton}>
+          <Refresh />
+        </ButtonBase>
+      </div>
+      <div className={s.stories}>
+        {itemsIds.map((id) => (
+          <Story key={id} story={itemsMap.get(id)} isLink />
+        ))}
+      </div>
     </div>
   );
 };

@@ -1,9 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
+import { routes } from "../../routes";
 import { addItems as addItemsAction } from "../../services/store";
 import { Comments } from "../Comments";
-import { foramtDate } from "../../services/formatter";
+import { ButtonBase } from "../common/ButtonBase";
+import { Link } from "../common/Link";
+import { Refresh } from "../icons/Refresh";
+import { ArrorLeft } from "../icons/ArrorLeft";
+import { Story } from "../story";
+import s from "./StoryPage.module.css";
 
 const StoryPageComponent = ({ itemsMap, addItems }) => {
   const { itemId } = useParams();
@@ -22,22 +28,26 @@ const StoryPageComponent = ({ itemsMap, addItems }) => {
 
   const item = itemsMap.get(parseInt(itemId));
 
-  if (!item) return null;
-
-  const url = item.url ? new URL(item.url) : null;
+  if (item && item.dead) return null;
 
   return (
-    <div>
-      <div>{item.title}</div>
-      <div>{url && <a href={url.href}>({url.host})</a>}</div>
-      <div>
-        {item.by} at {foramtDate(item.time)}
-      </div>
-      <div>
-        Comments {Boolean(item.descendants) && `(${item.descendants})`}{" "}
-        <button onClick={handleGetItem}>Refresh</button>
-      </div>
-      {Boolean(item.kids) && <Comments commensIds={item.kids} />}
+    <div className={s.root}>
+      <Link className={s.back} href={routes.app.index.getRoute()}>
+        <ArrorLeft />
+        back
+      </Link>
+      <Story className={s.story} story={item} />
+      {item && (
+        <>
+          <div className={s.comments}>
+            Comments {Boolean(item.descendants) && item.descendants}
+            <ButtonBase onClick={handleGetItem} className={s.refresh}>
+              <Refresh />
+            </ButtonBase>
+          </div>
+          {Boolean(item.kids) && <Comments commensIds={item.kids} />}
+        </>
+      )}
     </div>
   );
 };

@@ -1,0 +1,36 @@
+.root {
+  margin-top: 16px;
+}
+.story {
+  margin-top: 27px;
+}
+.comments {
+  display: flex;
+  align-items: center;
+  font-size: 1.25rem;
+  margin-top: 24px;
+}
+.refresh {
+  margin-left: 16px;
+  color: #cbcbcb;
+}
+.refresh:hover {
+  color: #49829e;
+}
+.back {
+  display: flex;
+  align-items: center;
+  height: 64px;
+  font-size: 3rem;
+  font-weight: 900;
+  color: #cbcbcb;
+}
+.back:hover {
+  color: #49829e;
+  text-decoration: unset;
+}
+.back > svg {
+  width: 38px;
+  height: 38px;
+  margin-right: 16px;
+}

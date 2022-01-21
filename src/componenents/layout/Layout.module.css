@@ -1,2 +1,17 @@
 .root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.gitIcon {
+  color: #cbcbcb;
+  width: 24px;
+  height: 24px;
+}
+footer {
+  margin-top: 36px;
+  display: flex;
+  justify-content: center;
+  padding: 18px;
 }

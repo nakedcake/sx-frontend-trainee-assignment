@@ -1,0 +1,15 @@
+.refreshBlock {
+  display: flex;
+  justify-content: center;
+}
+.refreshButton:hover > svg {
+  color: #49829e;
+}
+.refreshButton > svg {
+  width: 64px;
+  height: 64px;
+  color: #cbcbcb;
+}
+.stories {
+  margin-top: 24px;
+}

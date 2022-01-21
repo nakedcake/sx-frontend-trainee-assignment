@@ -1,5 +1,5 @@
 import React from "react";
-import { Stories } from "../Stories";
+import { Stories } from "../stories";
 import s from "./IndexPage.module.css";
 
 export const IndexPage = (props) => (

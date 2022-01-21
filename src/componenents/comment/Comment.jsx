@@ -16,15 +16,29 @@ const CommentComponent = ({ comment, forceOpen = false, addItems }) => {
     }
   }, [open, comment]);
 
-  if (!comment || comment.dead) return null;
-
   const handleOpen = () => setOpen(!open);
+
+  if (comment && comment.dead) return null;
+
+  if (!comment)
+    return (
+      <div className={s.root}>
+        <div className={s.rootCommentContainer}>
+          <div className={s.comment}>
+            <div className={cn(s.header, s.headerSkeleton)} />
+            <div className={s.message}><div className={s.messageSkeleton}/>
+            <div className={s.messageSkeleton}/>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
 
   const commentComponent = (
     <div className={s.comment}>
       <div className={s.header}>
         <span className={s.nickname}>{comment.by}</span>{" "}
-        <span className={s.time}>{foramtDate(comment.time)}</span>
+        {foramtDate(comment.time)}
       </div>
       <div
         className={s.message}
